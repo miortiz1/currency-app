@@ -43,12 +43,12 @@ const Conversor = () => {
 
   const handleSendingAmountChange = (value) => {
     setIsManualChange(true);
-    setSendingAmount(value);
+    setSendingAmount(Math.round(value * 10000)/10000);
   };
 
   const handleReceivingAmountChange = (value) => {
     setIsManualChange(false);
-    setReceivingAmount(value);
+    setReceivingAmount(Math.round(value * 10000)/10000);
   };
   
   useEffect(() => {
@@ -76,10 +76,10 @@ const Conversor = () => {
 
   useEffect(() => {
     if (isManualChange) {
-      setReceivingAmount(sendingAmount * exchangeRate);
+      setReceivingAmount(Math.round((sendingAmount * exchangeRate) * 10000)/10000);
     }
     if (!isManualChange) {
-      setSendingAmount(receivingAmount / exchangeRate);
+      setSendingAmount(Math.round((sendingAmount / exchangeRate) * 10000)/10000);
     }
   }, [sendingAmount, exchangeRate]);
 
