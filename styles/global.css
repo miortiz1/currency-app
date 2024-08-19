@@ -26,6 +26,20 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
